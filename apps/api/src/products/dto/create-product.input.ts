@@ -1,7 +1,11 @@
-import { InputType, Int, Field } from '@nestjs/graphql';
-
+import { InputType, Field } from '@nestjs/graphql';
+import { ICreateProductDto } from '@ecommerce/types';
 @InputType()
-export class CreateProductInput {
-  @Field(() => Int, { description: 'Example field (placeholder)' })
-  exampleField: number;
+export class CreateProductInput implements ICreateProductDto {
+  @Field(() => String, { description: 'Product title' })
+  title: string;
+  @Field(() => String, { description: 'Product image direct link' })
+  image: string;
+  @Field(() => String, { description: 'Product description' })
+  description: string;
 }

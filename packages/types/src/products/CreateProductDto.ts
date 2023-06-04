@@ -1,6 +1,12 @@
 import { IsNotEmpty, IsString, IsUrl } from "class-validator";
 
-export class CreateProductDto {
+export interface ICreateProductDto {
+  title: string;
+  image: string;
+  description: string;
+}
+
+export class CreateProductDto implements ICreateProductDto {
   @IsString()
   @IsNotEmpty()
   title: string;
