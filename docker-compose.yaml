@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  database:
+    image: mongo
+    container_name: ecommerce_database
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=password
+      - MONGO_INITDB_DATABASE=ecommerce_database
+    volumes:
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/mongoinit.js:ro
+      - ./mongo:/data/db
+    networks:
+      - ecommerce-network
+networks:
+  ecommerce-network:
+    driver: bridge
