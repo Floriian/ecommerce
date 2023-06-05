@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@apollo/client": "^3.7.15",
+    "@ecommerce/config": "workspace:^",
+    "@ecommerce/types": "workspace:^",
     "@reduxjs/toolkit": "^1.9.5",
     "graphql": "^16.6.0",
     "react": "^18.2.0",

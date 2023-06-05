@@ -1,5 +1,6 @@
 {
     "exportall.config.folderListener": [
-        "/apps/api/src/config"
+        "/apps/api/src/config",
+        "/apps/user/src/gql"
     ]
 }

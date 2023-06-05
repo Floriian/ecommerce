@@ -159,6 +159,12 @@ importers:
       '@apollo/client':
         specifier: ^3.7.15
         version: 3.7.15(graphql@16.6.0)(react-dom@18.2.0)(react@18.2.0)
+      '@ecommerce/config':
+        specifier: workspace:^
+        version: link:../../packages/config
+      '@ecommerce/types':
+        specifier: workspace:^
+        version: link:../../packages/types
       '@reduxjs/toolkit':
         specifier: ^1.9.5
         version: 1.9.5(react-redux@8.0.7)(react@18.2.0)
@@ -223,6 +229,12 @@ importers:
       vite:
         specifier: ^4.3.9
         version: 4.3.9
+
+  packages/config:
+    dependencies:
+      '@apollo/client':
+        specifier: ^3.7.15
+        version: 3.7.15(graphql@16.6.0)(react-dom@18.2.0)(react@18.2.0)
 
   packages/types:
     dependencies:
