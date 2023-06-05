@@ -9,7 +9,10 @@ export class ManufacturerResolver {
   constructor(private readonly manufacturerService: ManufacturerService) {}
 
   @Mutation(() => Manufacturer)
-  createManufacturer(@Args('createManufacturerInput') createManufacturerInput: CreateManufacturerInput) {
+  createManufacturer(
+    @Args('createManufacturerInput')
+    createManufacturerInput: CreateManufacturerInput,
+  ) {
     return this.manufacturerService.create(createManufacturerInput);
   }
 
@@ -23,9 +26,20 @@ export class ManufacturerResolver {
     return this.manufacturerService.findOne(id);
   }
 
+  @Query(() => Manufacturer, { name: 'manufacturer' })
+  findOneByName(@Args('name', { type: () => String }) name: string) {
+    return this.manufacturerService.findOneByName(name);
+  }
+
   @Mutation(() => Manufacturer)
-  updateManufacturer(@Args('updateManufacturerInput') updateManufacturerInput: UpdateManufacturerInput) {
-    return this.manufacturerService.update(updateManufacturerInput.id, updateManufacturerInput);
+  updateManufacturer(
+    @Args('updateManufacturerInput')
+    updateManufacturerInput: UpdateManufacturerInput,
+  ) {
+    return this.manufacturerService.update(
+      updateManufacturerInput.id,
+      updateManufacturerInput,
+    );
   }
 
   @Mutation(() => Manufacturer)

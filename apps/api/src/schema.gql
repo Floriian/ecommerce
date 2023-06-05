@@ -8,7 +8,7 @@ type Manufacturer {
 }
 
 type Query {
-  manufacturer(id: Int!): Manufacturer!
+  manufacturer(name: String!): Manufacturer!
 }
 
 type Mutation {

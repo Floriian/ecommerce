@@ -1,15 +1,40 @@
-import { Injectable } from '@nestjs/common';
+import {
+  ConflictException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { CreateManufacturerInput } from './dto/create-manufacturer.input';
 import { UpdateManufacturerInput } from './dto/update-manufacturer.input';
+import { Manufacturer } from './entities/manufacturer.entity';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
 
 @Injectable()
 export class ManufacturerService {
-  create(createManufacturerInput: CreateManufacturerInput) {
-    return 'This action adds a new manufacturer';
+  constructor(
+    @InjectModel(Manufacturer.name)
+    private manufacturerModel: Model<Manufacturer>,
+  ) {}
+  async create(
+    createManufacturerInput: CreateManufacturerInput,
+  ): Promise<Manufacturer> {
+    const manufacturer = await this.findOneByName(createManufacturerInput.name);
+    if (manufacturer)
+      throw new ConflictException('This manufacturer is exists!');
+
+    const createManufacturer = await this.manufacturerModel.create({
+      name: createManufacturerInput.name,
+    });
+    await createManufacturer.save();
+    return createManufacturer;
   }
 
-  findAll() {
-    return `This action returns all manufacturer`;
+  async findAll(): Promise<Manufacturer[]> {
+    return await this.manufacturerModel.find();
+  }
+
+  async findOneByName(name: string): Promise<Manufacturer> {
+    return await this.manufacturerModel.findOne({ name });
   }
 
   findOne(id: number) {
