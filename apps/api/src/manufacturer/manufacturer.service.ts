@@ -37,15 +37,32 @@ export class ManufacturerService {
     return await this.manufacturerModel.findOne({ name });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} manufacturer`;
+  async findOne(id: string): Promise<Manufacturer> {
+    const manufacturer = await this.manufacturerModel.findById(id);
+    if (!manufacturer)
+      throw new NotFoundException("This manufacturer doesn't exists.");
+    return manufacturer;
   }
 
-  update(id: string, updateManufacturerInput: UpdateManufacturerInput) {
-    return `This action updates a #${id} manufacturer`;
+  async update(
+    id: string,
+    updateManufacturerInput: UpdateManufacturerInput,
+  ): Promise<Manufacturer> {
+    await this.findOne(id);
+
+    const updated = await this.manufacturerModel.findByIdAndUpdate(id, {
+      $set: {
+        name: updateManufacturerInput.name,
+      },
+    });
+    await updated.save();
+    return updated;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} manufacturer`;
+  async removeManufacturer(id: string): Promise<{ success: boolean }> {
+    await this.findOne(id);
+    const del = await this.manufacturerModel.deleteOne({ _id: id });
+    if (!del) return { success: false };
+    return { success: true };
   }
 }

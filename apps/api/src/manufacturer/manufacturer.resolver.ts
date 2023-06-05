@@ -16,13 +16,13 @@ export class ManufacturerResolver {
     return this.manufacturerService.create(createManufacturerInput);
   }
 
-  @Query(() => [Manufacturer], { name: 'manufacturer' })
+  @Query(() => [Manufacturer], { name: 'manufacturers' })
   findAll() {
     return this.manufacturerService.findAll();
   }
 
   @Query(() => Manufacturer, { name: 'manufacturer' })
-  findOne(@Args('id', { type: () => Int }) id: number) {
+  findOne(@Args('id', { type: () => String }) id: string) {
     return this.manufacturerService.findOne(id);
   }
 
@@ -43,7 +43,7 @@ export class ManufacturerResolver {
   }
 
   @Mutation(() => Manufacturer)
-  removeManufacturer(@Args('id', { type: () => Int }) id: number) {
-    return this.manufacturerService.remove(id);
+  removeManufacturer(@Args('id', { type: () => String }) id: string) {
+    return this.manufacturerService.removeManufacturer(id);
   }
 }

@@ -3,18 +3,22 @@
 # ------------------------------------------------------
 
 type Manufacturer {
+  """Manufacturer ID."""
+  _id: String!
+
   """Manufacturer name"""
   name: String!
 }
 
 type Query {
+  manufacturers: [Manufacturer!]!
   manufacturer(name: String!): Manufacturer!
 }
 
 type Mutation {
   createManufacturer(createManufacturerInput: CreateManufacturerInput!): Manufacturer!
   updateManufacturer(updateManufacturerInput: UpdateManufacturerInput!): Manufacturer!
-  removeManufacturer(id: Int!): Manufacturer!
+  removeManufacturer(id: String!): Manufacturer!
 }
 
 input CreateManufacturerInput {
