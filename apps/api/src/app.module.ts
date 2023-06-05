@@ -7,7 +7,6 @@ import { configModuleOptions } from './config/config';
 import { graphQLConfig } from './config/graphql';
 import { MongooseModule } from '@nestjs/mongoose';
 import { mongooseOptions } from './config/mongoose';
-import { ManufacturerModule } from './manufacturer/manufacturer.module';
 
 @Module({
   imports: [
@@ -15,7 +14,6 @@ import { ManufacturerModule } from './manufacturer/manufacturer.module';
     GraphQLModule.forRoot<ApolloDriverConfig>(graphQLConfig),
     MongooseModule.forRootAsync(mongooseOptions),
     ProductsModule,
-    ManufacturerModule,
   ],
 })
 export class AppModule {}
