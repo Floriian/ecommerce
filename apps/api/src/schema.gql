@@ -31,7 +31,7 @@ type Query {
   manufacturers: [Manufacturer!]!
   manufacturer(name: String!): Manufacturer!
   products: [Product!]!
-  product(id: Int!): Product!
+  product(id: String!): Product!
 }
 
 type Mutation {
@@ -40,7 +40,7 @@ type Mutation {
   removeManufacturer(id: String!): Manufacturer!
   createProduct(createProductInput: CreateProductInput!): Product!
   updateProduct(updateProductInput: UpdateProductInput!): Product!
-  removeProduct(id: Int!): Product!
+  removeProduct(id: String!): Product!
 }
 
 input CreateManufacturerInput {
@@ -86,5 +86,5 @@ input UpdateProductInput {
 
   """Product manufacturer ID"""
   manufacturerId: String
-  id: Int!
+  id: String!
 }
