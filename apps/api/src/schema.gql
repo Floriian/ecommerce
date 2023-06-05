@@ -10,15 +10,25 @@ type Manufacturer {
   name: String!
 }
 
+type Product {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
 type Query {
   manufacturers: [Manufacturer!]!
   manufacturer(name: String!): Manufacturer!
+  products: [Product!]!
+  product(id: Int!): Product!
 }
 
 type Mutation {
   createManufacturer(createManufacturerInput: CreateManufacturerInput!): Manufacturer!
   updateManufacturer(updateManufacturerInput: UpdateManufacturerInput!): Manufacturer!
   removeManufacturer(id: String!): Manufacturer!
+  createProduct(createProductInput: CreateProductInput!): Product!
+  updateProduct(updateProductInput: UpdateProductInput!): Product!
+  removeProduct(id: Int!): Product!
 }
 
 input CreateManufacturerInput {
@@ -30,4 +40,15 @@ input UpdateManufacturerInput {
   """Manufacturer's name"""
   name: String
   id: String!
+}
+
+input CreateProductInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateProductInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
 }
