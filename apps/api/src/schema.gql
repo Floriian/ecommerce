@@ -1,0 +1,29 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Manufacturer {
+  """Manufacturer name"""
+  name: String!
+}
+
+type Query {
+  manufacturer(id: Int!): Manufacturer!
+}
+
+type Mutation {
+  createManufacturer(createManufacturerInput: CreateManufacturerInput!): Manufacturer!
+  updateManufacturer(updateManufacturerInput: UpdateManufacturerInput!): Manufacturer!
+  removeManufacturer(id: Int!): Manufacturer!
+}
+
+input CreateManufacturerInput {
+  """Manufacturer's name"""
+  name: String!
+}
+
+input UpdateManufacturerInput {
+  """Manufacturer's name"""
+  name: String
+  id: String!
+}
