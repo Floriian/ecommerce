@@ -12,7 +12,7 @@ export class ProductsService {
     @InjectModel(Product.name) private productModel: Model<Product>,
     private readonly manufacturerService: ManufacturerService,
   ) {}
-  async create(createProductInput: CreateProductInput) {
+  async create(createProductInput: CreateProductInput): Promise<Product> {
     const manufacturer = await this.manufacturerService.findOne(
       createProductInput.manufacturerId,
     );
@@ -26,8 +26,8 @@ export class ProductsService {
     return product;
   }
 
-  findAll() {
-    return `This action returns all products`;
+  async findAll(): Promise<Product[]> {
+    return await this.productModel.find().populate('manufacturer');
   }
 
   findOne(id: number) {
