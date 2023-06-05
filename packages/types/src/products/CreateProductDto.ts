@@ -1,9 +1,10 @@
-import { IsNotEmpty, IsString, IsUrl } from "class-validator";
+import { IsNotEmpty, IsNumber, IsString, IsUrl } from "class-validator";
 
 export interface ICreateProductDto {
   title: string;
   image: string;
   description: string;
+  amount: number;
 }
 
 export class CreateProductDto implements ICreateProductDto {
@@ -19,4 +20,8 @@ export class CreateProductDto implements ICreateProductDto {
   @IsString()
   @IsNotEmpty()
   description: string;
+
+  @IsNumber()
+  @IsNotEmpty()
+  amount: number;
 }

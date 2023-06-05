@@ -11,8 +11,20 @@ type Manufacturer {
 }
 
 type Product {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  """Product title"""
+  title: String!
+
+  """Product image"""
+  image: String!
+
+  """Product description"""
+  description: String!
+
+  """Product amount"""
+  amount: Int!
+
+  """Product manufacturer"""
+  manufacturer: Manufacturer!
 }
 
 type Query {
@@ -43,12 +55,36 @@ input UpdateManufacturerInput {
 }
 
 input CreateProductInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  """Product title"""
+  title: String!
+
+  """Product image"""
+  image: String!
+
+  """Product description"""
+  description: String!
+
+  """Product amount"""
+  amount: Int!
+
+  """Product manufacturer ID"""
+  manufacturerId: String!
 }
 
 input UpdateProductInput {
-  """Example field (placeholder)"""
-  exampleField: Int
+  """Product title"""
+  title: String
+
+  """Product image"""
+  image: String
+
+  """Product description"""
+  description: String
+
+  """Product amount"""
+  amount: Int
+
+  """Product manufacturer ID"""
+  manufacturerId: String
   id: Int!
 }

@@ -17,5 +17,6 @@ import {
       },
     ]),
   ],
+  exports: [ManufacturerService],
 })
 export class ManufacturerModule {}
