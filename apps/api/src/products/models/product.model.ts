@@ -1,12 +1,13 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
+import mongoose, { HydratedDocument } from 'mongoose';
+import { Manufacturer } from '../../manufacturer/model/manufacturer.model';
 
 @Schema()
 export class Product {
   @Prop({
     required: true,
   })
-  title: string;
+  name: string;
 
   @Prop({
     required: true,
@@ -17,6 +18,13 @@ export class Product {
     required: true,
   })
   image: string;
+
+  @Prop({
+    required: true,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: Product.name,
+  })
+  manufacturer: Manufacturer;
 }
 
 export type ProductDocument = HydratedDocument<Product>;

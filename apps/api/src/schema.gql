@@ -2,6 +2,11 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Manufacturer {
+  """Manufacturer name"""
+  name: String!
+}
+
 type Product {
   """Product title"""
   title: String!
@@ -11,6 +16,12 @@ type Product {
 
   """Product description"""
   description: String!
+
+  """Product name"""
+  name: String!
+
+  """Product manufacturer"""
+  manufacturer: Manufacturer!
 }
 
 type Query {
@@ -22,6 +33,7 @@ type Mutation {
   createProduct(createProductInput: CreateProductInput!): Product!
   updateProduct(updateProductInput: UpdateProductInput!): Product!
   removeProduct(id: Int!): Product!
+  createManufacturer(createManufacturerInput: CreateManufacturerInput!): Manufacturer!
 }
 
 input CreateProductInput {
@@ -45,4 +57,9 @@ input UpdateProductInput {
   """Product description"""
   description: String
   id: Int!
+}
+
+input CreateManufacturerInput {
+  """Manufacturer name"""
+  name: String!
 }
