@@ -3,6 +3,7 @@ import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import { GET_PRODUCT } from "../../gql";
 import placeholder from "../../assets/placeholder.png";
+import { InterestedProduct } from "../../components";
 export default function ProductPage() {
   const { id } = useParams();
   const { data } = useQuery(GET_PRODUCT, {
@@ -27,10 +28,16 @@ export default function ProductPage() {
           </h1>
           <div className="p-2">
             <p className="text-gray-900">{product?.description}</p>
+            <p>On stock: {product?.amount}</p>
           </div>
         </div>
       </div>
-      <div className=""></div>
+      <div className="">
+        {/* <InterestedProduct
+          manufacturerName={product?.title!}
+          products={product}
+        /> */}
+      </div>
     </>
   );
 }
