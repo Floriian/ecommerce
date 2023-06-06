@@ -6,6 +6,9 @@ import mongoose, { HydratedDocument } from 'mongoose';
 @Schema()
 @ObjectType()
 export class Product implements ICreateProductDto {
+  @Field(() => String, { description: 'Product ID' })
+  _id: mongoose.Schema.Types.ObjectId;
+
   @Prop({ required: true })
   @Field(() => String, { description: 'Product title' })
   title: string;
