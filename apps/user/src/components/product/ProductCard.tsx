@@ -9,7 +9,7 @@ type Props = {
 export function ProductCard({ product }: Props) {
   const img = product.image === "" ? placeholder : product.image;
   return (
-    <div className="max-w-xl border-2 rounded-md flex flex-col w-full md:w-[576px] p-2 gap-4 justify-between">
+    <div className="max-w-[300px] border-2 rounded-md flex flex-col w-full md:w-[576px] p-2 gap-4 justify-between">
       <div>
         <img
           src={img}

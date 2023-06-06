@@ -10,7 +10,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="md:flex w-full gap-2 mt-2">
+      <div className="md:flex w-full gap-2 mt-2 flex-wrap">
         {data?.products.map((product) => (
           <ProductCard key={product._id} product={product} />
         ))}
