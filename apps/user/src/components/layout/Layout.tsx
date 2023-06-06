@@ -6,7 +6,7 @@ export function Layout() {
   return (
     <>
       <Menu />
-      <main>
+      <main className="p-2">
         <Outlet />
       </main>
     </>
