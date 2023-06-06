@@ -27,7 +27,9 @@ export class ProductsService {
   }
 
   async findAll(): Promise<Product[]> {
-    return await this.productModel.find().populate('manufacturer');
+    return await this.productModel
+      .find({ manufacturer: { $ne: null } })
+      .populate('manufacturer');
   }
 
   async findOne(id: string): Promise<Product> {
