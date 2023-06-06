@@ -8,7 +8,7 @@ type Props = {
 };
 
 export function ProductCard({ product }: Props) {
-  const img = product.image === "" ? placeholder : product.image;
+  const img = product.image === "" ? placeholder : product.image; //TODO
 
   const navigate = useNavigate();
 
