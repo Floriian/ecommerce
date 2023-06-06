@@ -13,7 +13,7 @@ export class Manufacturer {
   name: string;
 
   @Prop({ required: true })
-  @Field(() => String, { description: 'Manufacturer image' })
+  @Field(() => String, { description: 'Manufacturer image', defaultValue: '' })
   image: string;
 }
 export type ManufacturerDocument = HydratedDocument<Manufacturer>;
