@@ -14,6 +14,9 @@ type Manufacturer {
 }
 
 type Product {
+  """Product ID"""
+  _id: String!
+
   """Product title"""
   title: String!
 
