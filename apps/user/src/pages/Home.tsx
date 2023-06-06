@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-import { GET_MANUFACTURERS, GET_PRODUCTS } from "../gql";
+import { GET_PRODUCTS } from "../gql";
 import { ProductCard } from "../components";
 
 export default function Home() {
