@@ -8,6 +8,7 @@ export const GET_PRODUCT: TypedDocumentNode<{ product: TProduct }> = gql`
       image
       title
       description
+      amount
       manufacturer {
         name
       }
