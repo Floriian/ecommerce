@@ -1,16 +1,28 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { Product } from "../product/product.store";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { Product } from "../product/product.type";
 
 interface Cart {
   products: Product[];
-  price: number;
+  totalPrice: number;
 }
 const initialState: Cart = {
-  price: 0,
+  totalPrice: 0,
   products: [],
 };
 export const cartSlice = createSlice({
   name: "cart",
   initialState,
-  reducers: {},
+  reducers: {
+    addProduct: (state, { payload }: PayloadAction<Product>) => {
+      state.products.push(payload);
+      state.totalPrice = state.totalPrice + payload.price;
+    },
+    removeProduct: (state, { payload }: PayloadAction<Product>) => {
+      state.products = state.products.filter((p) => p != payload);
+      state.totalPrice = state.totalPrice - payload.price;
+    },
+    resetCart: (state) => {
+      state = initialState;
+    },
+  },
 });

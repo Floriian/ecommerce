@@ -1,5 +1,22 @@
 import React from "react";
+import { TProduct } from "@ecommerce/types";
+import { ProductCard } from ".";
 
-export default function InterestedProduct() {
-  return <div>InterestedProduct</div>;
+type Props = {
+  product: TProduct[];
+  manufacturerName: string;
+};
+
+export function InterestedProduct({ product, manufacturerName }: Props) {
+  const sameManufacturer = product?.filter(
+    (p) => p.manufacturer.name === manufacturerName
+  );
+
+  return (
+    <div>
+      {sameManufacturer.map((product) => (
+        <ProductCard product={product} key={product._id} />
+      ))}
+    </div>
+  );
 }
