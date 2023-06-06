@@ -1,1 +1,1 @@
-export * from "./getManufacturer";
+export * from "./getManufacturers";
