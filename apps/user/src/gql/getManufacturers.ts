@@ -1,7 +1,7 @@
 import { TypedDocumentNode, gql } from "@apollo/client";
-import { Manufacturer } from "@ecommerce/types";
+import { Manufacturers } from "@ecommerce/types";
 
-export const GET_MANUFACTURERS: TypedDocumentNode<Manufacturer> = gql`
+export const GET_MANUFACTURERS: TypedDocumentNode<Manufacturers> = gql`
   query GetManufacturers {
     manufacturers {
       name

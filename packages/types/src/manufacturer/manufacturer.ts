@@ -1,10 +1,10 @@
 import { BaseQuery } from "..";
 
-type TManufacturer = {
+export type Manufacturer = {
   _id: string;
   name: string;
 };
 
-export interface Manufacturer {
-  manufacturers: TManufacturer[];
+export interface Manufacturers {
+  manufacturers: Manufacturer[];
 }
