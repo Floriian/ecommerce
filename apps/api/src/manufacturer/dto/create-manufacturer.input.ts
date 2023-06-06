@@ -1,7 +1,8 @@
-import { InputType, Int, Field } from '@nestjs/graphql';
+import { CreateManuFacturerDto } from '@ecommerce/types';
+import { InputType, Field } from '@nestjs/graphql';
 
 @InputType()
-export class CreateManufacturerInput {
+export class CreateManufacturerInput implements CreateManuFacturerDto {
   @Field(() => String, { description: "Manufacturer's name" })
   name: string;
 
