@@ -4,4 +4,7 @@ import { InputType, Int, Field } from '@nestjs/graphql';
 export class CreateManufacturerInput {
   @Field(() => String, { description: "Manufacturer's name" })
   name: string;
+
+  @Field(() => String, { description: 'Manufacturer image.' })
+  image: string;
 }

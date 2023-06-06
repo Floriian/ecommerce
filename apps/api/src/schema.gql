@@ -8,6 +8,9 @@ type Manufacturer {
 
   """Manufacturer name"""
   name: String!
+
+  """Manufacturer image"""
+  image: String!
 }
 
 type Product {
@@ -46,11 +49,17 @@ type Mutation {
 input CreateManufacturerInput {
   """Manufacturer's name"""
   name: String!
+
+  """Manufacturer image."""
+  image: String!
 }
 
 input UpdateManufacturerInput {
   """Manufacturer's name"""
   name: String
+
+  """Manufacturer image."""
+  image: String
   id: String!
 }
 

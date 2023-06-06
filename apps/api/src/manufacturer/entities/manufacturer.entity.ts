@@ -11,6 +11,10 @@ export class Manufacturer {
   @Prop({ required: true })
   @Field(() => String, { description: 'Manufacturer name' })
   name: string;
+
+  @Prop({ required: true })
+  @Field(() => String, { description: 'Manufacturer image' })
+  image: string;
 }
 export type ManufacturerDocument = HydratedDocument<Manufacturer>;
 export const ManufacturerSchema = SchemaFactory.createForClass(Manufacturer);
