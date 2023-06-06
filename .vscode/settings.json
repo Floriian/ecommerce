@@ -4,6 +4,7 @@
         "/apps/user/src/gql",
         "/apps/user/src/components",
         "/apps/user/src/components/layout",
-        "/apps/user/src/types"
+        "/apps/user/src/types",
+        "/apps/user/src/components/product"
     ]
 }
