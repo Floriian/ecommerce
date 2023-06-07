@@ -22,14 +22,11 @@ export default function Cart() {
         </thead>
         <tbody>
           {cart.products.map((product) => (
-            <tr
-              key={product._id}
-              className="[&>tbody>*:nth-child(even)]:bg-gray-500"
-            >
+            <tr key={product._id}>
               <td className="w-14 h-14">
                 <img src={product.image} alt={product.name} />
               </td>
-              <td>{product.name}</td>
+              <td>{product.manufacturer.name}</td>
               <td>{product.name}</td>
               <td>{product.price}</td>
               <td>{product.productAmount}</td>

@@ -28,6 +28,7 @@ export default function ProductPage() {
         price: product!.price,
         productAmount: 1,
         image: product!.image,
+        manufacturer: product!.manufacturer,
       })
     );
   };
