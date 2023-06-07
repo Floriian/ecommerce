@@ -28,10 +28,17 @@ export default function Cart() {
               </td>
               <td>{product.manufacturer.name}</td>
               <td>{product.name}</td>
-              <td>{product.price}</td>
+              <td>${product.price}</td>
               <td>{product.productAmount}</td>
             </tr>
           ))}
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Total ${cart.totalPrice}</td>
+            <td></td>
+          </tr>
         </tbody>
       </table>
       <div className="flex justify-center">
