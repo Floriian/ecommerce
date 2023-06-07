@@ -3,6 +3,8 @@ import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import { GET_PRODUCT } from "../../gql";
 import placeholder from "../../assets/placeholder.png";
+import { useAppDispatch } from "../../hooks/redux";
+import { addProduct } from "../../store/cart/cart.store";
 export default function ProductPage() {
   const { id } = useParams();
   const { data } = useQuery(GET_PRODUCT, {
@@ -15,8 +17,17 @@ export default function ProductPage() {
 
   const img = product?.image === "" ? placeholder : product?.image;
 
+  const dispatch = useAppDispatch();
+
   const handleClick = () => {
-    return;
+    dispatch(
+      addProduct({
+        _id: product!._id,
+        name: product!.title,
+        price: product!.price,
+        productAmount: 1,
+      })
+    );
   };
 
   return (
@@ -34,7 +45,7 @@ export default function ProductPage() {
             <p>On stock: {product?.amount}</p>
             <button
               className="p-2 text-white rounded-md bg-green-700"
-              onClick={() => handleClick}
+              onClick={() => handleClick()}
             >
               Add to Cart
             </button>

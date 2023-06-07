@@ -9,6 +9,7 @@ export const GET_PRODUCT: TypedDocumentNode<{ product: TProduct }> = gql`
       title
       description
       amount
+      price
       manufacturer {
         name
       }
