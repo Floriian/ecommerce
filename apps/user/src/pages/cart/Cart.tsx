@@ -16,13 +16,13 @@ export default function Cart() {
             <th></th>
             <th>Manufacturer</th>
             <th>Product</th>
-            <th>Product price</th>
+            <th>Price</th>
             <th>Amount</th>
           </tr>
         </thead>
         <tbody>
           {cart.products.map((product) => (
-            <tr key={product._id}>
+            <tr key={product._id} className="p-4">
               <td className="w-14 h-14">
                 <img src={product.image} alt={product.name} />
               </td>
