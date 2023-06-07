@@ -4,6 +4,7 @@ import { TProduct } from "@ecommerce/types";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { Product } from "../../store/product/product.type";
+import { addProduct } from "../../store/cart/cart.store";
 
 type Props = {
   product: TProduct;
@@ -17,9 +18,17 @@ export function ProductCard({ product }: Props) {
   const handleClick = (id: string) => navigate(`/product/${id}`);
 
   const dispatch = useAppDispatch();
+  const productSelector = useAppSelector((state) => state.cart.products);
 
-  const addProductToCart = (product: TProduct) => {
-    return;
+  const handleAddProductToCart = (product: TProduct) => {
+    dispatch(
+      addProduct({
+        _id: product._id,
+        name: product.title,
+        price: product.price,
+        productAmount: 1,
+      })
+    );
   };
 
   return (
@@ -36,12 +45,13 @@ export function ProductCard({ product }: Props) {
       </div>
       <div className="">
         <p className="text-gray-800">{product.description}</p>
+        <p className="text-lg font-bold">${product.price}</p>
       </div>
 
       <div className="flex w-full gap-4 justify-center">
         <button
           className="bg-green-500 text-white p-2 text-xl rounded-md hover:bg-green-700 transition-colors duration-150"
-          onClick={() => addProductToCart(product)}
+          onClick={() => handleAddProductToCart(product)}
         >
           Add to cart
         </button>
