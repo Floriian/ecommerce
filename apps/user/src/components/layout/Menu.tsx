@@ -13,11 +13,13 @@ export function Menu() {
 
   return (
     <nav className="flex w-full justify-between gap-2 bg-blue-400 bg-opacity-90 p-2 rounded-b-lg sticky top-0 items-center">
-      <div>LOGO</div>
+      <div className="text-xl font-bold text-white">
+        Simple GraphQL E-Commerce
+      </div>
       <div className="flex gap-2">
-        {[1, 2, 3, 4, 5].map((_, i) => (
+        {/* {[1, 2, 3, 4, 5].map((_, i) => (
           <div key={i}>Lorem</div>
-        ))}
+        ))} */}
       </div>
       <div className="text-2xl hover:cursor-pointer" onClick={handleClick}>
         <div className="relative">
