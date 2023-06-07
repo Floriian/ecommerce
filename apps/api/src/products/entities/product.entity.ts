@@ -25,6 +25,10 @@ export class Product implements ICreateProductDto {
   @Field(() => Int, { description: 'Product amount' })
   amount: number;
 
+  @Prop({ required: true, default: 0 })
+  @Field(() => Int, { description: 'Product price' })
+  price: number;
+
   @Prop({
     required: true,
     type: mongoose.Schema.Types.ObjectId,

@@ -3,7 +3,6 @@ import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import { GET_PRODUCT } from "../../gql";
 import placeholder from "../../assets/placeholder.png";
-import { InterestedProduct } from "../../components";
 export default function ProductPage() {
   const { id } = useParams();
   const { data } = useQuery(GET_PRODUCT, {
@@ -15,6 +14,10 @@ export default function ProductPage() {
   const product = data?.product;
 
   const img = product?.image === "" ? placeholder : product?.image;
+
+  const handleClick = () => {
+    return;
+  };
 
   return (
     <>
@@ -29,6 +32,12 @@ export default function ProductPage() {
           <div className="p-2">
             <p className="text-gray-900">{product?.description}</p>
             <p>On stock: {product?.amount}</p>
+            <button
+              className="p-2 text-white rounded-md bg-green-700"
+              onClick={() => handleClick}
+            >
+              Add to Cart
+            </button>
           </div>
         </div>
       </div>

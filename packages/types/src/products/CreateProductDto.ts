@@ -5,6 +5,7 @@ export interface ICreateProductDto {
   image: string;
   description: string;
   amount: number;
+  price: number;
 }
 
 export class CreateProductDto implements ICreateProductDto {
@@ -24,4 +25,8 @@ export class CreateProductDto implements ICreateProductDto {
   @IsNumber()
   @IsNotEmpty()
   amount: number;
+
+  @IsNumber()
+  @IsNotEmpty()
+  price: number;
 }

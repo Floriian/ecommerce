@@ -13,4 +13,7 @@ export class CreateProductInput implements ICreateProductDto {
   amount: number;
   @Field(() => String, { description: 'Product manufacturer ID' })
   manufacturerId: string;
+
+  @Field(() => Int, { description: 'Product price' })
+  price: number;
 }

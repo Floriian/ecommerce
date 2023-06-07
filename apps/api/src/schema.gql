@@ -29,6 +29,9 @@ type Product {
   """Product amount"""
   amount: Int!
 
+  """Product price"""
+  price: Int!
+
   """Product manufacturer"""
   manufacturer: Manufacturer!
 }
@@ -81,6 +84,9 @@ input CreateProductInput {
 
   """Product manufacturer ID"""
   manufacturerId: String!
+
+  """Product price"""
+  price: Int!
 }
 
 input UpdateProductInput {
@@ -98,5 +104,8 @@ input UpdateProductInput {
 
   """Product manufacturer ID"""
   manufacturerId: String
+
+  """Product price"""
+  price: Int
   id: String!
 }

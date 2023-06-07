@@ -24,4 +24,5 @@ export const productSlice = createSlice({
   },
 });
 
-export const { increaseAmount } = productSlice.actions;
+export const { increaseAmount, decreaseAmount, setProduct } =
+  productSlice.actions;

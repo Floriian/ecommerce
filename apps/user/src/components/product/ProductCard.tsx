@@ -2,6 +2,8 @@ import React from "react";
 import placeholder from "../../assets/placeholder.png";
 import { TProduct } from "@ecommerce/types";
 import { useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
+import { Product } from "../../store/product/product.type";
 
 type Props = {
   product: TProduct;
@@ -13,6 +15,12 @@ export function ProductCard({ product }: Props) {
   const navigate = useNavigate();
 
   const handleClick = (id: string) => navigate(`/product/${id}`);
+
+  const dispatch = useAppDispatch();
+
+  const addProductToCart = (product: TProduct) => {
+    return;
+  };
 
   return (
     <div className="max-w-[300px] border-2 rounded-md flex flex-col w-full md:w-[576px] p-2 gap-4 justify-between">
@@ -31,7 +39,10 @@ export function ProductCard({ product }: Props) {
       </div>
 
       <div className="flex w-full gap-4 justify-center">
-        <button className="bg-green-500 text-white p-2 text-xl rounded-md hover:bg-green-700 transition-colors duration-150">
+        <button
+          className="bg-green-500 text-white p-2 text-xl rounded-md hover:bg-green-700 transition-colors duration-150"
+          onClick={() => addProductToCart(product)}
+        >
           Add to cart
         </button>
         <button
