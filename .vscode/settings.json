@@ -5,6 +5,7 @@
         "/apps/user/src/components",
         "/apps/user/src/components/layout",
         "/apps/user/src/types",
-        "/apps/user/src/components/product"
+        "/apps/user/src/components/product",
+        "/packages/types/src/order"
     ]
 }
