@@ -3,7 +3,11 @@ import { useAppSelector } from "../../hooks/redux";
 
 export default function Cart() {
   const cart = useAppSelector((state) => state.cart);
-  if (cart.products.length <= 0) return <h1>Your cart is empty!</h1>;
+  if (cart.products.length <= 0)
+    return (
+      <p className="text-center font-bold text-2xl">Your cart is empty.</p>
+    );
+
   return (
     <div className="flex flex-col items-center">
       <table>
