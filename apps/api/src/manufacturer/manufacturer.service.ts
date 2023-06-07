@@ -29,7 +29,7 @@ export class ManufacturerService {
       throw new ConflictException('This manufacturer is exists!');
 
     const createManufacturer = await this.manufacturerModel.create({
-      name: createManufacturerInput.name,
+      ...createManufacturerInput,
     });
     await createManufacturer.save();
     return createManufacturer;
