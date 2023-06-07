@@ -7,6 +7,7 @@ export const GET_PRODUCTS: TypedDocumentNode<Products> = gql`
       _id
       image
       title
+      price
       description
       manufacturer {
         name

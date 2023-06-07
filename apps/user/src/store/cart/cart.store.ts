@@ -22,6 +22,7 @@ export const cartSlice = createSlice({
       );
       if (!productInCart) {
         state.products.push(payload);
+        state.totalPrice += payload.price;
       }
 
       /**
@@ -31,6 +32,7 @@ export const cartSlice = createSlice({
       if (productInCart) {
         state.products = state.products.map((product) => {
           if (product._id === payload._id) {
+            state.totalPrice += payload.price;
             return {
               ...product,
               productAmount: (product.productAmount += 1),
