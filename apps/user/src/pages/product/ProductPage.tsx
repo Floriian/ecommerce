@@ -14,6 +14,7 @@ export default function ProductPage() {
   });
 
   const product = data?.product;
+  console.log(product);
 
   const img = product?.image === "" ? placeholder : product?.image;
 
@@ -26,6 +27,7 @@ export default function ProductPage() {
         name: product!.title,
         price: product!.price,
         productAmount: 1,
+        image: product!.image,
       })
     );
   };

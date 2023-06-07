@@ -9,7 +9,7 @@ export default function Cart() {
     );
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center text-center">
       <table>
         <thead>
           <tr>
@@ -26,7 +26,9 @@ export default function Cart() {
               key={product._id}
               className="[&>tbody>*:nth-child(even)]:bg-gray-500"
             >
-              <td>img</td>
+              <td className="w-14 h-14">
+                <img src={product.image} alt={product.name} />
+              </td>
               <td>{product.name}</td>
               <td>{product.name}</td>
               <td>{product.price}</td>

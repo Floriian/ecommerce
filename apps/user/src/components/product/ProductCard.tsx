@@ -28,6 +28,7 @@ export function ProductCard({ product }: Props) {
         name: product.title,
         price: product.price,
         productAmount: 1,
+        image: product.image,
       })
     );
   };
