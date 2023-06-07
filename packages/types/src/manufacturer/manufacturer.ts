@@ -1,7 +1,6 @@
-import { BaseQuery } from "..";
+import { BaseEntity, BaseQuery } from "..";
 
-export type Manufacturer = {
-  _id: string;
+export type Manufacturer = BaseEntity & {
   name: string;
 };
 

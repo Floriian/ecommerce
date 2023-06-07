@@ -1,10 +1,10 @@
+import { BaseEntity } from "..";
 import { Manufacturer } from "../manufacturer";
 
-export type TProduct = {
-  _id: string;
+export type TProduct = BaseEntity & {
   title: string;
   description: string;
-  amount: string;
+  amount: number;
   image: string;
   price: number;
   manufacturer: Manufacturer;
