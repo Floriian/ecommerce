@@ -17,8 +17,9 @@ export function ProductCard({ product }: Props) {
 
   const handleClick = (id: string) => navigate(`/product/${id}`);
 
+  const shortDescription = product.description.substring(0, 150) + "...";
+
   const dispatch = useAppDispatch();
-  const productSelector = useAppSelector((state) => state.cart.products);
 
   const handleAddProductToCart = (product: TProduct) => {
     dispatch(
@@ -44,7 +45,7 @@ export function ProductCard({ product }: Props) {
         <h2 className="font-thin text-gray-500">{product.manufacturer.name}</h2>
       </div>
       <div className="">
-        <p className="text-gray-800">{product.description}</p>
+        <p className="text-gray-800">{shortDescription}</p>
         <p className="text-lg font-bold">${product.price}</p>
       </div>
 

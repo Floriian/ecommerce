@@ -5,7 +5,7 @@ export default function Cart() {
   const cart = useAppSelector((state) => state.cart);
   if (cart.products.length <= 0) return <h1>Your cart is empty!</h1>;
   return (
-    <div className="flex justify-center">
+    <div className="flex flex-col items-center">
       <table>
         <thead>
           <tr>
@@ -31,6 +31,11 @@ export default function Cart() {
           ))}
         </tbody>
       </table>
+      <div className="flex justify-center">
+        <button className="bg-green-500 p-2 text-white font-bold hover:bg-green-600 rounded-md">
+          Place order
+        </button>
+      </div>
     </div>
   );
 }

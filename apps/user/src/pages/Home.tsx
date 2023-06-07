@@ -9,12 +9,11 @@ export default function Home() {
   if (loading) return <h1>Loading...</h1>; //TODO
 
   return (
-    <>
-      <div className="md:flex w-full gap-2 mt-2 flex-wrap">
-        {data?.products.map((product) => (
-          <ProductCard key={product._id} product={product} />
-        ))}
-      </div>
-    </>
+    //md:flex w-full gap-2 mt-2 flex-wrap justify-center flex-col md:flex-row
+    <div className="flex w-full gap-2 flex-wrap justify-center">
+      {data?.products.map((product) => (
+        <ProductCard key={product._id} product={product} />
+      ))}
+    </div>
   );
 }
